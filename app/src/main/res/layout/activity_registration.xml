@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#421F00">
+
+    <ImageView
+        android:id="@+id/foodShareLogo"
+        android:layout_width="match_parent"
+        android:layout_height="179dp"
+        android:layout_marginTop="100dp"
+        android:alpha="0.5"
+        android:src="@drawable/foodsharelogo" />
+
+    <TextView
+        android:id="@+id/registerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/foodShareLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="@string/register_title"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerTitle"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/design_default_color_surface"
+        android:hint="@string/username_hint"
+        android:padding="12dp"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameEditText"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/design_default_color_surface"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/design_default_color_surface"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <Spinner
+        android:id="@+id/userTypeSpinner"
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordEditText"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="24dp"
+        android:background="#9FEDB38D"
+        android:padding="12dp"
+        android:popupBackground="#CCB46C"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userTypeSpinner"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/white"
+        android:text="@string/sign_up_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+</RelativeLayout>

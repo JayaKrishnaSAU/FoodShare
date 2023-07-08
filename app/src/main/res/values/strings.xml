@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FoodShare</string>
+    <string name="register_title">Welcome to Registration</string>
+    <string name="username_hint">Username</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="user_type_prompt">Select User Type</string>
+    <string-array name="user_types_array">
+        <item>Restaurant Owner</item>
+        <item>Donation Center</item>
+    </string-array>
+</resources>
