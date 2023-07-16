@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.foodshare.HomeActivity"
-    android:orientation="vertical">
-    >
+    android:padding="16dp"
+    tools:context="com.example.foodshare.HomeActivity">
 
-    <TextView
-        android:id="@+id/tvWelcomeMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome to FoodShare"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="16dp" />
-
+    <!-- Add a RecyclerView to display the list of restaurants -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/restaurantList"
+        android:id="@+id/restaurantRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleTextView"
+        android:layout_marginTop="16dp" />
 
-</LinearLayout>
+</RelativeLayout>

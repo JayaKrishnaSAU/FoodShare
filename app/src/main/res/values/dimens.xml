@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="actionBarSize">56dp</dimen>
-
+    <dimen name="restaurant_item_margin">8dp</dimen>
+    <dimen name="restaurant_item_image_width">179dp</dimen>
+    <dimen name="restaurant_item_image_height">178dp</dimen>
+    <dimen name="restaurant_item_text_size">16sp</dimen>
+    <dimen name="restaurant_item_subtext_size">14sp</dimen>
+    <color name="restaurant_item_distance_color">#BF0202</color>
 </resources>

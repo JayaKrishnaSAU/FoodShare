@@ -1,3 +1,6 @@
+import java.sql.Connection
+import java.sql.SQLException
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -16,7 +19,24 @@ android {
         applicationId "com.example.foodshare"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    task dbConnectionTest {
+        doLast {
+            String url = "jdbc:mysql://localhost:3306/foodshare";
+            String username = "root";
+            String password = "password";
 
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection connection = DriverManager.getConnection(url, username, password);
+                println("Database connection established successfully!");
+                // Perform additional database operations as needed
+                connection.close();
+                println("Database connection closed.");
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -62,6 +82,12 @@ dependencies {
     implementation 'androidx.compose.runtime:runtime:1.4.3'
     implementation 'androidx.compose.animation:animation:1.4.3'
     implementation 'androidx.compose.compiler:compiler:1.4.8'
-    implementation 'mysql:mysql-connector-java:8.0.27'
+    implementation('mysql:mysql-connector-java:5.1.47') {
+        exclude group: 'some.group', module: 'conflicting-dependency'
+    }
+    // https://mvnrepository.com/artifact/net.sourceforge.jtds/jtds
+    implementation 'net.sourceforge.jtds:jtds:1.2.4'
+
+
 
 }

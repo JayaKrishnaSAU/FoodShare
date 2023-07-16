@@ -6,6 +6,18 @@
     <string name="password_hint">Password</string>
     <string name="sign_up_button">Sign Up</string>
     <string name="user_type_prompt">Select User Type</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="quantity_available">Quantity Available: </string>
+    <string name="restaurant_address">Restaurant Address</string>
+    <string name="restaurant_rating">Rating: </string>
+    <string name="restaurant_remarks">Remarks: </string>
+    <string name="distance">Distance: </string>
+    <string name="restaurant_image">Restaurant Image</string>
+    <string name="userTypeTextView">User Type</string>
+    <string name="emailTextView">User Email</string>
+    <string name="usernameTextView">User Name</string>
+
+
     <string-array name="user_types_array">
         <item>Restaurant Owner</item>
         <item>Donation Center</item>

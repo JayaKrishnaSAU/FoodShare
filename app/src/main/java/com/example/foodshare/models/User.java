@@ -1,37 +1,17 @@
 package com.example.foodshare.models;
 
 public class User {
-    private int userId;
     private String username;
     private String email;
     private String password;
-    private int userTypeId;
+    private String userType;
 
-    public User(int userId, String username, String email, String password, int userTypeId) {
-        this.userId = userId;
+    public User(String username, String email, String password, String userType) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.userTypeId = userTypeId;
+        this.userType = userType;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public int getUserTypeId() {
-        return userTypeId;
-    }
+    // Getters and setters for the properties
 }

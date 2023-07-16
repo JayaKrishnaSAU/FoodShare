@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#421F00">
+    android:background="#3D8785">
 
     <ImageView
         android:id="@+id/foodShareLogo"
         android:layout_width="match_parent"
-        android:layout_height="179dp"
+        android:layout_height="89dp"
         android:layout_marginTop="100dp"
         android:alpha="0.5"
         android:src="@drawable/foodsharelogo" />
@@ -42,7 +42,7 @@
 
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="408dp"
+        android:layout_width="364dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/usernameEditText"
         android:layout_marginStart="24dp"
@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/userTypeSpinner"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="34dp"
         android:layout_marginEnd="24dp"
         android:background="@color/white"
         android:text="@string/sign_up_button"

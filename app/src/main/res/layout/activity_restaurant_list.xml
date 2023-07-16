@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#768C7E">
+
+    <TextView
+        android:id="@+id/foodShareHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="FoodShare"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/profileLinkTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:text="Profile"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/foodShareHeader"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/restaurantImage"
+                    android:layout_width="179dp"
+                    android:layout_height="178dp"
+                    android:contentDescription="Restaurant Image"
+                    android:src="@drawable/restaurant" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp">
+
+                    <TextView
+                        android:id="@+id/quantityAvailableTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity Available: 10"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/distanceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Distance: 2 km"
+                        android:textSize="@dimen/restaurant_item_subtext_size"
+                        android:textColor="@color/restaurant_item_distance_color" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Add more data items here -->
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
