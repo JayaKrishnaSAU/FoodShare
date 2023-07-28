@@ -1,49 +1,49 @@
 package com.example.foodshare;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.foodshare.models.Restaurant;
 import com.example.tictactoe.R;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
-
-    private Restaurant restaurant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
 
-        restaurant = (Restaurant) getIntent().getSerializableExtra("restaurant");
-        populateRestaurantDetails();
+        // Get the restaurant data from the intent
+        RestaurantData restaurant = getIntent().getParcelableExtra("restaurant");
 
+        // Set restaurant name
+        TextView nameTextView = findViewById(R.id.nameTextView);
+        nameTextView.setText(restaurant.getName());
+
+        // Set restaurant address
+        TextView addressTextView = findViewById(R.id.addressTextView);
+        addressTextView.setText(restaurant.getAddress());
+
+        // Set restaurant rating
+        TextView ratingTextView = findViewById(R.id.ratingTextView);
+        ratingTextView.setText(String.valueOf(restaurant.getRating()));
+
+        // Set restaurant remarks
+        TextView remarksTextView = findViewById(R.id.remarksTextView);
+        remarksTextView.setText(restaurant.getRemarks());
+
+        // Set Click Listener for "Request Donation" button
         Button btnRequestDonation = findViewById(R.id.btnRequestDonation);
-        btnRequestDonation.setOnClickListener(view -> {
-            // Handle donation request button click event
-            requestDonation();
+        btnRequestDonation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show a toast message indicating that the owner will get notified
+                Toast.makeText(RestaurantDetailsActivity.this, "Owner will get notified.", Toast.LENGTH_SHORT).show();
+            }
         });
-    }
-
-    private void populateRestaurantDetails() {
-        TextView tvRestaurantName = findViewById(R.id.tvRestaurantName);
-        TextView tvQuantityAvailable = findViewById(R.id.tvQuantityAvailable);
-        TextView tvAddress = findViewById(R.id.tvAddress);
-        TextView tvRating = findViewById(R.id.tvRating);
-        TextView tvRemarks = findViewById(R.id.tvRemarks);
-
-        tvRestaurantName.setText(restaurant.getName());
-        tvQuantityAvailable.setText(String.valueOf(restaurant.getQuantityAvailable()));
-        tvAddress.setText(restaurant.getAddress());
-        tvRating.setText(restaurant.getRating());
-        tvRemarks.setText(restaurant.getRemarks());
-    }
-
-    private void requestDonation() {
-        // Perform donation request logic
-        // You can implement the database or API interaction here
     }
 }

@@ -54,8 +54,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
         public RestaurantViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvRestaurantName = itemView.findViewById(R.id.tvRestaurantName);
-            tvQuantityAvailable = itemView.findViewById(R.id.tvQuantityAvailable);
+//            tvRestaurantName = itemView.findViewById(R.id.tvRestaurantName);
+//            tvQuantityAvailable = itemView.findViewById(R.id.tvQuantityAvailable);
 
             tvQuantityAvailable.setOnClickListener(new View.OnClickListener() {
                 @Override

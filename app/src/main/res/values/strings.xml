@@ -16,10 +16,23 @@
     <string name="userTypeTextView">User Type</string>
     <string name="emailTextView">User Email</string>
     <string name="usernameTextView">User Name</string>
-
-
+    <!-- strings.xml -->
+    <string-array name="all_restaurants">
+        <item>Restaurant 1</item>
+        <item>Restaurant 2</item>
+        <!-- Add the rest of the restaurant names here -->
+        <!-- Total 50 items -->
+    </string-array>
+    <string-array name="location_options">
+        <item>Dallas</item>
+        <item>Fortworth</item>
+        <item>Plano</item>
+        <item>Irving</item>
+    </string-array>
     <string-array name="user_types_array">
         <item>Restaurant Owner</item>
         <item>Donation Center</item>
     </string-array>
+
+
 </resources>

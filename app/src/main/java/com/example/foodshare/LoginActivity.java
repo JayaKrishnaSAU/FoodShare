@@ -3,7 +3,6 @@ package com.example.foodshare;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    class AsyncLogin extends AsyncTask<Void, Void, Boolean> {
+    class AsyncLogin extends AsyncTask<Void, Void, String> {
         private String email;
         private String password;
 
@@ -70,17 +69,13 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         @Override
-        protected Boolean doInBackground(Void... voids) {
-            // Perform the validation logic
-            // You can implement your database or API interaction here to validate the credentials
-            // For simplicity, let's consider the login as successful if the email is not empty and password is "password"
-
+        protected String doInBackground(Void... voids) {
             try {
                 // Create a database connection
                 connection = DatabaseConnection.getConnection();
 
                 // Prepare the SQL query to retrieve the user with the given email and password
-                String query = "SELECT * FROM user WHERE email = ? AND password = ?";
+                String query = "SELECT user_type_id FROM User WHERE email = ? AND password = ?";
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, email);
                 statement.setString(2, password);
@@ -89,34 +84,89 @@ public class LoginActivity extends AppCompatActivity {
                 ResultSet resultSet = statement.executeQuery();
 
                 // Check if a user with the given email and password exists in the database
-                boolean isValidCredentials = resultSet.next();
+                if (resultSet.next()) {
+                    int userTypeId = resultSet.getInt("user_type_id");
+
+                    // Close the result set and statement
+                    resultSet.close();
+                    statement.close();
+                    connection.close();
+
+                    // Fetch the user type name from the User_Type table using the user type ID
+                    return getUserTypeName(userTypeId);
+                }
 
                 // Close the result set, statement, and connection
                 resultSet.close();
                 statement.close();
                 connection.close();
 
-                return isValidCredentials;
             } catch (SQLException | NoClassDefFoundError | ClassNotFoundException e) {
                 e.printStackTrace();
-                return false;
             }
+
+            return null;
+        }
+
+        private String getUserTypeName(int userTypeId) {
+            try {
+                // Create a new database connection
+                connection = DatabaseConnection.getConnection();
+
+                // Prepare the SQL query to retrieve the user type name with the given user type ID
+                String query = "SELECT user_type_name FROM User_Type WHERE user_type_id = ?";
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setInt(1, userTypeId);
+
+                // Execute the query
+                ResultSet resultSet = statement.executeQuery();
+
+                // Check if the user type name exists in the database
+                if (resultSet.next()) {
+                    String userType = resultSet.getString("user_type_name");
+
+                    // Close the result set and statement
+                    resultSet.close();
+                    statement.close();
+                    connection.close();
+
+                    return userType;
+                }
+
+                // Close the result set, statement, and connection
+                resultSet.close();
+                statement.close();
+                connection.close();
+
+            } catch (SQLException | NoClassDefFoundError | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            return null;
         }
 
         @Override
-        protected void onPostExecute(Boolean isValidCredentials) {
-            if (isValidCredentials) {
+        protected void onPostExecute(String userType) {
+            if (userType != null) {
                 // Successful login
                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
-                // Navigate to the RestaurantListActivity
-                Intent intent = new Intent(LoginActivity.this, RestaurantListActivity.class);
-                startActivity(intent);
+                // Check the user type and navigate to the appropriate activity
+                if (userType.equals("Donation Center Organizer")) {
+                    // Navigate to the StatusActivity
+                    Intent intent = new Intent(LoginActivity.this, StatusActivity.class);
+                    startActivity(intent);
+                } else if (userType.equals("Restaurant Owner")) {
+                    // Navigate to the RestaurantListActivity
+                    Intent intent = new Intent(LoginActivity.this, RestaurantListActivity.class);
+                    startActivity(intent);
+                }
             } else {
                 // Failed login
                 Toast.makeText(LoginActivity.this, "Incorrect email or password", Toast.LENGTH_SHORT).show();
             }
         }
     }
-}
 
+
+}

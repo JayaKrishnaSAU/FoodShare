@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#768C7E"
+    android:gravity="center">
+
+
+    <!-- Logout Button -->
+
+
+
+    <TextView
+        android:id="@+id/updatedDishTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Updated Dish: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/updatedQuantityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Updated Quantity: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Food Availability"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_700" />
+
+    <EditText
+        android:id="@+id/dishNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Name of the Dish"
+        android:background="@color/black" />
+
+    <EditText
+        android:id="@+id/quantityEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Quantity Available (numbers only)"
+        android:inputType="number"
+        android:background="@color/black" />
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#E62F4D"
+        android:text="Update"
+        android:textColor="@color/white" />
+
+
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:backgroundTint="#BC5162"
+        android:text="Logout"
+        android:textColor="@android:color/white" />
+</LinearLayout>

@@ -82,11 +82,12 @@ dependencies {
     implementation 'androidx.compose.runtime:runtime:1.4.3'
     implementation 'androidx.compose.animation:animation:1.4.3'
     implementation 'androidx.compose.compiler:compiler:1.4.8'
-    implementation('mysql:mysql-connector-java:5.1.47') {
+    implementation('mysql:mysql-connector-java:5.1.46') {
         exclude group: 'some.group', module: 'conflicting-dependency'
     }
     // https://mvnrepository.com/artifact/net.sourceforge.jtds/jtds
     implementation 'net.sourceforge.jtds:jtds:1.2.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1' // Make sure to use the latest version
 
 
 

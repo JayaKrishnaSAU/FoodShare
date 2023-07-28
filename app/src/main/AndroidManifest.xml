@@ -29,6 +29,7 @@
         <activity android:name="com.example.foodshare.RestaurantListActivity" />
         <activity android:name="com.example.foodshare.RestaurantDetailsActivity" />
         <activity android:name="com.example.foodshare.ProfileActivity" />
+        <activity android:name="com.example.foodshare.StatusActivity" />
     </application>
 
 </manifest>
